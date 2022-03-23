@@ -4,11 +4,8 @@ import java.lang.Integer;
 
 /*me he quedado en la parte de añadir inicializadores, el low order byte va primero, es decir, a = 01 23 45 67 pero en realidad en hex tal y como estoy
 acostumbrado se escribe 67 45 23 01, es decir, cada elemento de byte hexadecicimal en orden original pero con el orden invertido entre bytes
-
 Al final escribi todos los registros de 32 bits (del A al D)
-
 Ahora debo escribir las funciones para procesar las palabras de 32 bits
-
 */
 
 public class Principal {
@@ -88,11 +85,20 @@ public class Principal {
 
     }
 
-    public static byte F (byte[] a, byte[] b, byte[] c){
-        byte F = 0b00000000;
+    public static byte[] F(byte[] b, byte[] c, byte[] d) {
+        //Toma 3 palabras de 32 bits cada una y devuelve como "F" una palabra de 32 bits
+        ;
+
+        Byte[] F = (b & c) | (~b & d);
 
 
         return F;
+
+    }
+
+    public static byte[] G(byte[] b, byte[] c, byte[] d){
+        //Toma 3 palabras de 32 bits cada una y devuelve como "F" una palabra de 32 bits
+
 
     }
 
@@ -105,7 +111,6 @@ public class Principal {
         System.out.println("\nFirst padding byte has been appended");
         System.out.print("byte string: ");
         byteArrayHex(byteArrayPadding(byteString, firstAppendByte, zeroByte));
-
 
 
     }
